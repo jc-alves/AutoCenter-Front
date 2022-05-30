@@ -47,21 +47,24 @@ export default {
   data() {
     return {
       email: 'jose@alves',
-      password: '123456'   
+      password: '123456',
+      user: ''   
      
     }
   },
-        
+     
+
+
   methods: {
     async handleSubmit() {
          try {
              const response = await axios.post(global.userCredential, {
               email: this.email,
-              password: this.password                   
+              password: this.password,                  
               })
-              localStorage.setItem('toke', response.data.toke)
-             // localStorage.setItem('email', JSON.stringify(this.email))
-             // localStorage.setItem('nome', JSON.stringify(this.nome))                             
+              localStorage.setItem('toke', response.data.toke)             
+              localStorage.setItem('nome', response.data.nome)
+               localStorage.setItem('tipo', response.data.tipo)                           
               this.$router.push('/home')              
          } catch {
              alert('Erro ao autenticar!')
