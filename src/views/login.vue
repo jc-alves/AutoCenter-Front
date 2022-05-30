@@ -6,27 +6,25 @@
  
     
         <div class="form">
-          <form action="/action_page.php" method="post">
- 
-
-  <div class="login1">
-    <label for="uname"><b>Usuario</b></label>
-    <input type="text" placeholder="Nome do usuário" name="uname" required>
-
-    <label for="psw"><b>Senha</b></label>
-    <input type="password" placeholder="Digite a senha" name="psw" required>
+          <form  method="POST" @submit.prevent="handleSubmit()"> 
+            <div class="login1">
+                <label for="uname"><b>Usuario</b></label>
+                <input type="text" placeholder="email" name="email" required v-model="email">
+                <label for="psw"><b>Senha</b></label>
+                <input type="password" placeholder="Digite a senha" name="password" required v-model="password">
         
-    <button type="submit">Entrar</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Me relembre
-    </label>
-  </div>
+                <button type="submit">Entrar</button>
+                <label>
+                <input type="checkbox" checked="checked" name="remember"> Me relembre
+                </label>
+            </div>
 
-  <div class="login1" style="background-color:#f1f1f1">
+                <div class="login1" style="background-color:#f1f1f1">
 
-    <span class="psw">Esqueceu a <a href="#">senha?</a></span>
-  </div>
-</form>
+                    <span class="psw">Esqueceu a <a href="#">senha?</a></span>
+                </div>
+           </form>
+          
         </div>
               
         </div>
@@ -42,8 +40,38 @@
 </template>
 
 <script>
+import global from '../components/auth/global'
+import axios from 'axios'
 export default {
-  
+  name: 'login',
+  data() {
+    return {
+      email: 'jose@alves',
+      password: '123456'   
+     
+    }
+  },
+        
+  methods: {
+    async handleSubmit() {
+         try {
+             const response = await axios.post(global.userCredential, {
+              email: this.email,
+              password: this.password                   
+              })
+              localStorage.setItem('toke', response.data.toke)
+             // localStorage.setItem('email', JSON.stringify(this.email))
+             // localStorage.setItem('nome', JSON.stringify(this.nome))                             
+              this.$router.push('/home')              
+         } catch {
+             alert('Erro ao autenticar!')
+         }
+          
+
+          
+       }
+  }    
+
 }
 </script>
 
