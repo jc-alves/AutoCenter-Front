@@ -6,9 +6,7 @@
             <button @click="outSubmit" class="bt-vm">Sair</button>
         </div>
 
-        <div class="logo">
-            <p>logo</p> 
-        </div>
+       
 
         <div class="menu">
             <div class="dropdown">
@@ -72,7 +70,7 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropbtn">Cadastro 
+                <button class="dropbtn">Serviços 
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
@@ -132,9 +130,7 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-    color: white;
-}
+
 .bt-vm {
   background-color: #04AA6D;
   color: white;
@@ -175,7 +171,8 @@ export default {
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: white;
+  color: black;
 }
 
 .dropdown-content {
