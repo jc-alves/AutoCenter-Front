@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { isSignedIn } from '../components/auth/auth';
+import { isSignedIn } from '../components/auth/auth'
 import Home from '../views/Home.vue'
+import Estimate from '../components/sale/estimate.vue'
+import Product from '../components/registration/product'
 
 const routes = [
   {
@@ -14,6 +16,32 @@ const routes = [
       }
       next('/')
     },
+    children: [
+
+                { path: '/sales',                
+                  component:  import(/* webpackChunkName: "sales" */ '../components/sale/sales.vue')
+                  
+                },
+                { path: '/estimate',
+                name: 'Estimate',
+                component: Estimate
+                },
+                { path: '/product',
+                name: 'Product',
+                component: Product
+                },
+                { path: '/newprovider',                
+                component:  import(/* webpackChunkName: "newProvider" */ '../components/registration/provider/newProvider.vue')
+                  
+                },
+                { path: '/newclient',
+                component: import(/* webpackChunkName: "newClient" */ '../components/client/newClient.vue')
+
+                }              
+
+                
+              ]
+    
   },
   {
     path: '/',

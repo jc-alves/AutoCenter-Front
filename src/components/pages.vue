@@ -1,15 +1,13 @@
 <template>
-    <div class="conteiner">
+  <div class="conteiner">
     <h1>Teste</h1>
-    </div>
+    <router-view />
+  </div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
-<style scoped>
-
+<style>
 </style>

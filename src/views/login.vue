@@ -1,9 +1,9 @@
 <template>
-  <div class="login">
-   <h1>Systech</h1>
-  <h2>Grupo Auto Peças Beira Rio</h2>
+  <div id="login">
+   
     <div class="container">
- 
+    <h1>Systech</h1>
+  <h3>Grupo Auto Peças Beira Rio</h3>
     
         <div class="form">
           <form  method="POST" @submit.prevent="handleSubmit()"> 
@@ -13,7 +13,7 @@
                 <label for="psw"><b>Senha</b></label>
                 <input type="password" placeholder="Digite a senha" name="password" required v-model="password">
         
-                <button type="submit">Entrar</button>
+                <button type="submit"><b>Entrar</b></button>
                 <label>
                 <input type="checkbox" checked="checked" name="remember"> Me relembre
                 </label>
@@ -28,9 +28,6 @@
         </div>
               
         </div>
-        <!-- <div class="box3">
-        <p>box3</p>
-        </div> -->
     
     </div>
   
@@ -79,46 +76,39 @@ export default {
 </script>
 
 <style scoped>
-.login {
+
+
+#login {
   width: 100%;
-  height: 90vh;
-  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
   color: rgb(30, 30, 70);
-  
+  justify-content: center;
+  align-items: center;
 
 }
 .container {
-  margin-top: -20px;
-  width: 100%;
-  height: 80vh;
-  background: #ffffff;
-  display: flex;
+  width: 95%;
+  height: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
   justify-content: center;
   align-items: center;
 }
-.box {
-  margin-top: 0%;
-  width: 90%;
-  height: 400px;
-  background: #fff;
-}
-.box2 {
-  height: 300px;
-  width: 500px;
-}
-.box3 {
-  display: inline-block;
-  height: 80px;
-  width: 80px;
-  border: solid 3px black;
-  padding: 13vw 0vw 5vw 0vw;
-  min-width:40vw;
-  margin-left: 30px;
-}
+
 
 .form {
+  margin: 100px auto;
   color: red;
-  padding: 3px;
+  padding: 30px;
+  width: 90%;
+  height: 90%;
+  max-width: 800px;
+  min-width: 80%;
+  min-height: 300px;
+  
 
 }
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -141,6 +131,7 @@ button {
   border: none;
   cursor: pointer;
   width: 100%;
+  font-size: 30px;
 }
 
 button:hover {
@@ -153,20 +144,10 @@ button:hover {
   background-color: #f44336;
 }
 
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
+label {
+  font-size: 18px;
 }
-
-.login {
-  padding: 16px;
-}
-
 span.psw {
   float: right;
   padding-top: 16px;

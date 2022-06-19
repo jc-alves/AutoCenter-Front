@@ -1,12 +1,12 @@
 <template>
-    <div class="navbar">
+<div class="navbar">
         <div class="users">
             <label>Usuario: {{ nome }}</label><br>
-            <label>Nivel: {{ tipo }}</label><br>
-            <button @click="outSubmit" class="bt-vm">Sair</button>
+            <label>Nivel: {{ tipo }}</label>
+            <button @click="outSubmit" class="bt-vm" style="margin-left: 800px">Sair</button>
         </div>
 
-       
+
 
         <div class="menu">
             <div class="dropdown">
@@ -14,27 +14,45 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <router-link class="link" to="/sales">Realizar Venda</router-link>
+                    <router-link class="link" to="/estimate">Orçamentos</router-link>
                 </div>
             </div>
+           
             <div class="dropdown">
                 <button class="dropbtn">Cadastro 
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+                    <li><a href="#">Fornecedores</a>
+                        <ul>
+                            <li><router-link class="link" to="/newprovider">Novo fornecedor</router-link></li>
+                            <li><a href="#">Localizar</a></li>
+                            <li><a href="#">Extrato</a></li>
+                        </ul>
+                    </li>    
+                    <li><a href="#">Clientes</a>
+                        <ul>
+                            <li><router-link class="link" to="/newclient">Novo cliente</router-link></li>
+                            <li><a href="#">Localizar cliente</a></li>
+                            <li><a href="#">Extrato cliente</a></li>
+                        </ul>
+                    </li>                                                                    
+                </div>   
             </div>
+
+
+
+
+
+
+
             <div class="dropdown">
                 <button class="dropbtn">Estoque 
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
+                    <router-link class="link" to="/product">Novo produto</router-link>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
                 </div>
@@ -59,16 +77,7 @@
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <button class="dropbtn">Configurações
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+           
             <div class="dropdown">
                 <button class="dropbtn">Serviços 
                     <i class="fa fa-caret-down"></i>
@@ -79,22 +88,13 @@
                     <a href="#">Link 3</a>
                 </div>
             </div>
-            <div class="dropdown">
-                <button class="dropbtn">Cadastro 
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
-            </div>
+            
         </div>
     
-    </div>
+</div>
 </template>
 
-<script>
+<script >
 import { signOut } from '../components/auth/auth'
 export default {
     name: 'navbar',
@@ -159,6 +159,12 @@ export default {
   float: left;
   overflow: hidden;
 }
+.dropnav {
+    float: left;
+    display: none ;
+    overflow:visible;
+  
+}
 
 .dropdown .dropbtn {
   font-size: 13px;  
@@ -185,6 +191,11 @@ export default {
   z-index: 1;
 }
 
+.dropdown-bt{
+  color: black;
+   
+  
+}
 .dropdown-content a {
   float: none;
   color: black;
@@ -217,13 +228,38 @@ export default {
 .menu {
     text-align: left;
     margin: 0;
-    right: 180px;
+    right: 190px;
     position: absolute;
     top: 70px;
     height: 20px;
     right: 0;
-    width: 900px;
+    width: 100%;
     color: white;
 }
 
+ul {
+    
+margin: 0;
+padding: 0;
+list-style: none;
+width: 150px;
+}
+ul li {
+position: relative;
+}
+li ul {
+position: absolute;
+left: 150px;
+top: 0;
+display: none;
+}
+ul li a {
+   
+   text-decoration: none;
+   color: #E2144A;
+   background-color: #f9f9f9;
+   
+   
+}
+li:hover ul { display: block; }
 </style>
