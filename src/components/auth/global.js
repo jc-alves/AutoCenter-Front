@@ -1,5 +1,5 @@
-export const baseURL = 'http://localhost:3000';
-export const userCredential = 'http://localhost:3000/auth/login'
+export const baseURL = 'http://192.168.18.205:3000';
+export const userCredential = 'http://192.168.18.205:3000/auth/login'
 
 function getHeaders () {
   const token = localStorage.getItem('token');

@@ -1,9 +1,28 @@
 <template>
 <div class="navbar">
         <div class="users">
-            <label>Usuario: {{ nome }}</label><br>
-            <label>Nivel: {{ tipo }}</label>
-            <button @click="outSubmit" class="bt-vm" style="margin-left: 800px">Sair</button>
+             <div class="dropdown">
+                <button class="btninicias">{{ inciais }}
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+<pre>
+Nome: {{ nome }}
+Matricula: xxxxx
+Função: {{ tipo }}
+
+
+<button @click="outSubmit" >Sair</button>                
+                
+</pre>
+
+                
+                    
+          
+                    
+                </div>
+            </div>               
+           
         </div>
 
 
@@ -101,7 +120,10 @@ export default {
      data () {
         return {
             nome: '',
-            tipo: ''            
+            tipo: '',
+            nome1: '',
+            nome2: '',
+            inciais: ''           
           
         }
         
@@ -114,7 +136,12 @@ export default {
       
         .then(() => {
             self.nome = user.nome,
-            self.tipo = user.tipo           
+            self.tipo = user.tipo,
+            self.nome1 = user.nome.split(" ")[0]
+            self.nome2 = user.nome.split(" ")[1]
+            self.inciais = this.nome1[0] + this.nome2[0] 
+
+            // self.iniciais = user.nome[0] + " " + user.nome[1]             
         }).catch((error) => {
             console.error(error)
         })
@@ -134,16 +161,14 @@ export default {
 .bt-vm {
   background-color: #04AA6D;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  margin: 0 auto;
   border: none;
   cursor: pointer;
   width: 60px;
-  border-radius: 3px;
-  height: 20px;
+  border-radius: 2px;
+  
   }
-
-
+ 
 .bt-vm:hover {
   opacity: 0.8;
 }
@@ -167,13 +192,13 @@ export default {
 }
 
 .dropdown .dropbtn {
-  font-size: 13px;  
+  font-size: 18px;  
   border: none;
   outline: none;
   color: white;
   background-color: inherit;
   font-family: inherit;
-  margin: 0;
+
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
@@ -217,13 +242,18 @@ export default {
     text-align: left;
     font: monospace;
     font-size: 14px;
-    float: left;
-    margin-top: 25px;
+    float: right;
     margin-left: 10px;
     color: white;
     height: 40px;
     width: 300px;   
     position: relative;
+}
+pre {
+    font-size: 18px;
+    color: #000;
+    background-color: #F8F8FF;
+    width: 350px;
 }
 .menu {
     text-align: left;
@@ -262,4 +292,17 @@ ul li a {
    
 }
 li:hover ul { display: block; }
+.btninicias {
+    text-transform: uppercase; 
+    width: 350px;
+     background-color: white;
+    color: black;
+      font-size: 18px;  
+  border: none;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  text-align:left
+}
 </style>

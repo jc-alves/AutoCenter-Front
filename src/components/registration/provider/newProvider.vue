@@ -158,7 +158,7 @@ methods: {
   
 </script>
 
-<style>
+<style scoped>
 #conteiner {
   margin-top: 0;
   width: 50%;

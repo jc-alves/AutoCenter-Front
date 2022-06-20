@@ -35,7 +35,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #conteiner {
   margin-top: 0;
   width: 900px;

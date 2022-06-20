@@ -89,7 +89,7 @@ export default {
 
 }
 .container {
-  width: 95%;
+  width: 98%;
   height: 80%;
   max-width: 600px;
   margin: 0 auto;
@@ -130,7 +130,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 90%;
   font-size: 30px;
 }
 
@@ -151,6 +151,28 @@ label {
 span.psw {
   float: right;
   padding-top: 16px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  margin: 8px 0;
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+label {
+  display: flex;
+  padding: 5px;
+  text-align: left;
+}
+
+.left {
+  width: 200px;
+  display: block;
 }
 
 </style>
