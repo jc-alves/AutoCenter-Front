@@ -1,8 +1,10 @@
 <template>
-<div class="navbar">
+<div id="navbar">
         <div class="users">
-             <div class="dropdown">
-                <button class="btninicias">{{ inciais }}
+       
+             <div class="dropdown"><br>
+             
+                <button class="btninicias"><p>{{ inciais }}</p>
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
@@ -10,16 +12,12 @@
 Nome: {{ nome }}
 Matricula: xxxxx
 Função: {{ tipo }}
-
-
-<button @click="outSubmit" >Sair</button>                
-                
 </pre>
-
-                
-                    
-          
-                    
+    <router-link class="link" to="/sales">Alterar Senha</router-link>
+    <router-link class="link" to="/sales">Menssagens</router-link>
+    <router-link class="link" to="/sales">Logs de acesso</router-link>
+    <button class="btnuser" @click="outSubmit" >Sair</button>                
+                                    
                 </div>
             </div>               
            
@@ -30,7 +28,6 @@ Função: {{ tipo }}
         <div class="menu">
             <div class="dropdown">
                 <button class="dropbtn">Vendas 
-                    <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
                     <router-link class="link" to="/sales">Realizar Venda</router-link>
@@ -156,8 +153,16 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped >
 
+.btnuser {
+    border: 0;
+    background-color: #F8F8FF;
+    font-size: 16px;
+    height: 30px;
+    width: 60px;
+    text-align: left;
+}
 .bt-vm {
   background-color: #04AA6D;
   color: white;
@@ -173,11 +178,13 @@ export default {
   opacity: 0.8;
 }
 
-.navbar {
+#navbar {
     background-color: rgb(11, 11, 77);
     height: 110px;
     width: 100%;
     display: flex;
+    position: fixed;
+    z-index: 1;
     
 }
 .dropdown {
@@ -192,13 +199,12 @@ export default {
 }
 
 .dropdown .dropbtn {
-  font-size: 18px;  
+  font-size: 1.4rem;  
   border: none;
   outline: none;
   color: white;
   background-color: inherit;
-  font-family: inherit;
-
+  margin-left: 15px;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
@@ -241,29 +247,31 @@ export default {
 .users {
     text-align: left;
     font: monospace;
-    font-size: 14px;
+    font-size: 1.6rem;
     float: right;
     margin-left: 10px;
     color: white;
     height: 40px;
     width: 300px;   
     position: relative;
+    
 }
 pre {
     font-size: 18px;
     color: #000;
     background-color: #F8F8FF;
     width: 350px;
+    margin-left: 15px;
 }
 .menu {
-    text-align: left;
+    text-align: center;
     margin: 0;
-    right: 190px;
     position: absolute;
-    top: 70px;
-    height: 20px;
-    right: 0;
-    width: 100%;
+    top: 75px;
+    height: 30px;
+    max-height:max-content;
+    width: 90%;
+    max-width: 600px;
     color: white;
 }
 
@@ -305,4 +313,5 @@ li:hover ul { display: block; }
   font-family: inherit;
   text-align:left
 }
+
 </style>

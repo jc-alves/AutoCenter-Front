@@ -1,7 +1,9 @@
 <template>
-  <div class="conteiner">
-    <h1>Teste</h1>
-    <router-view />
+  <div id="conteiner">
+    <div id="view">
+     <router-view />
+    </div> 
+   
   </div>
 </template>
 
@@ -9,5 +11,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
+
+
 </style>

@@ -1,10 +1,11 @@
 <template>
   <div id="conteiner">
+    <div id="newprovider">
     <div id="form">
-      <form method="POST" @submit.prevent="newSubmit()">
-        <span>
-          <label for="name" class="left"
-            ><b>Razão Social</b>
+      <form method="POST" @submit.prevent="newSubmit()" id="grid-container">
+        <div class="grid">
+          <div> 
+          <label for="name"><b>Razão Social</b>
             <input
               type="text"
               class="left"
@@ -14,25 +15,23 @@
               v-model="nome"
             />
           </label>
-
-          <label for="cnpj" class="right"
-            ><b>CNPJ</b>
-            <!-- <input
+          </div>
+          <div>
+          <label for="cnpj"><b>CNPJ</b>
+             <input
               type="text"
               class="right"
               placeholder="00.000.000/000-00"
               name="cnpj"
               required
-              v-model="cnpj"
-            /> -->
+              v-model="cnpj">
+            
             <CNPJ required v-model="cnpj" @keydown.tab.prevent="carregarCnpj($event.target.value)" />
              
           </label>
-          
-        </span>
-        <span>
-          <label for="inscricao" class="left"
-            ><b>Inscrição Estadual</b>
+          </div>
+          <div>
+          <label for="inscricao"><b>Inscrição Estadual</b>
             <input
               type="text"
               class="left"
@@ -44,9 +43,9 @@
             />
             
           </label>
-
-          <label for="cidade" class="right"
-            ><b>MUNICIPIO</b>
+          </div>
+          <div>
+          <label for="cidade"><b>MUNICIPIO</b>
             <input
               type="text"
               class="right"
@@ -56,22 +55,20 @@
               v-model="municipio"
             />
           </label>
-        </span>
-        <span>
-          <label for="email" class="left"
-            ><b>UF</b>
+          </div>
+          <div>
+          <label for="email"><b>UF</b>
             <input
               type="email"
-              class="left"
               placeholder="funalo@fulano.com"
               name="email"
               required
               v-model="email"
             />
           </label>
-
-          <label for="endereço" class="right"
-            ><b>LOGRADOURO</b>
+          </div>
+          <div>
+          <label for="endereço"><b>LOGRADOURO</b>
             <input
               type="text"
               class="right"
@@ -81,10 +78,9 @@
               v-model="logradouto"
             />
           </label>
-        </span>
-        <span>
-          <label for="telefone" class="left"
-            ><b>Telefone</b>
+          </div>
+          <div>
+          <label for="telefone"><b>Telefone</b>
             <input
               type="text"
               class="left"
@@ -94,9 +90,9 @@
               v-model="telefone"
             />
           </label>
-
-          <label for="fantasia" class="right"
-            ><b>Fantasia</b>
+          </div>
+          <div>
+          <label for="fantasia"><b>Fantasia</b>
             <input
               type="text"
               class="right"
@@ -106,20 +102,29 @@
               v-model="fantasia"
             />
           </label>
-        </span>
+          </div>
+           
+        </div>
+          
+
+          
+        
 
         <button type="submit">Salvar</button>
         <button class="cancelbtn">Limpar dados</button>
       </form>
     </div>
+    </div>
+
+    
   </div>
 </template>
 
 <script>
-import CNPJ from '../../CNPJ.vue';
+ //import CNPJ from '../../CNPJ.vue';
 export default {
     name: "newProvider",
-    components: { CNPJ },
+    components: {  },
     data () {
       return {
         inscricao: '',
@@ -160,35 +165,38 @@ methods: {
 
 <style scoped>
 #conteiner {
-  margin-top: 0;
-  width: 50%;
-  height: 400px;
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border: solid #fff 1px;
+    background-color: #F8F8FF;    
+}
+
+#newprovider {
+  margin-top: 120px;
+  width: 99%;
 }
 
 #form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+
   height: 100%;
-}
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  min-width: 370px;  
+  
+  }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
 }
 
 input[type="text"],
 input[type="password"],
 input[type="email"] {
   width: 300px;
-  padding: 12px 20px;
+  padding: 15px 10px;
   margin: 8px 0;
-  display: inline-block;
+  display: flex;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
@@ -210,25 +218,26 @@ button:hover {
 
 .cancelbtn {
   width: auto;
-  margin: 8px 0;
+  margin: 8px 10px;
   padding: 14px 20px;
   background-color: #f44336;
+
 }
 
-span {
-  display: flex;
-  padding: 5px;
-  text-align: left;
-}
 
-.left {
-  width: 200px;
-  display: block;
-}
-
-.right {
-  padding: 0 140px 0;
-  width: 200px;
-  display: block;
-}
+ .grid {  
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-gap: 1px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 90%;
+        }
+   .grid div {   
+            
+            max-width: 500px;
+            font-family: Arial;
+            font-size: 1.6rem;
+            padding: 1px;
+        }       
 </style>

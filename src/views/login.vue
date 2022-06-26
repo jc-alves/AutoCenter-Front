@@ -88,6 +88,10 @@ export default {
   align-items: center;
 
 }
+ h1 {
+  font-family: arial;
+  font-size: 3.6rem;
+ }
 .container {
   width: 98%;
   height: 80%;
